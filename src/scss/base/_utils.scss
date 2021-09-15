@@ -1,0 +1,71 @@
+@use "../abstracts/colors" as clr;
+
+.p-1 {
+  padding: 0.25rem;
+}
+
+.px-1 {
+  padding: 0 0.25rem 0 0.25rem;
+}
+
+.py-1 {
+  padding: 0.25rem 0 0.25rem 0;
+}
+
+.m-1 {
+  margin: 0.25rem;
+}
+
+.mx-1 {
+  margin: 0 0.25rem 0 0.25rem;
+}
+
+.mx-auto {
+  margin: 0 auto;
+}
+
+.my-1 {
+  margin: 0.25rem 0 0.25rem 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+@each $color, $value in clr.$colors {
+  .bg-#{$color} {
+    background-color: var(--clr-#{$color});
+  }
+  .clr-#{$color} {
+    color: var(--clr-#{$color});
+  }
+}
+
+.text-xs {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+}
+
+.text-sm {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+}
+
+.text-md {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-regular);
+}
+
+.text-lg {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-regular);
+}
+
+.text-lg--bold {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semi-bold);
+}

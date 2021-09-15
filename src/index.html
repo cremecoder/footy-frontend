@@ -6,5 +6,74 @@
     <title>World Cup 2018 by Sean Martin</title>
     <link rel="stylesheet" href="scss/main.scss" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <img
+        class="icon text-md"
+        src="images/1200px-2018_FIFA_worldcup.svg.png"
+        alt="FIFA World Cup Russia 2018"
+      />
+      <form method="POST" action="/">
+        <input
+          type="text"
+          name="team"
+          placeholder="Search country"
+          class="input text-lg"
+          autocomplete="off"
+          autofocus="on"
+        />
+      </form>
+    </header>
+    <main class="bg-primary grid">
+      <div class="card bg-neutral-100 clr-neutral-600">
+        <ul class="card-top">
+          <li class="text-xs p-1">
+            STAGE <span class="text-sm clr-neutral-700 px-1">GROUP STAGE</span>
+          </li>
+          <li class="text-xs p-1">
+            GROUP <span class="text-sm clr-neutral-700 px-1">GROUP A</span>
+          </li>
+          <li class="text-xs p-1 clr-txt-winner">
+            WINNER <span class="text-sm clr-neutral-700 px-1">RUSSIA</span>
+          </li>
+        </ul>
+
+        <div class="card-center text-lg--bold text-center">
+          <div class="card-center--home p-1">
+            <p class="text-xs">HOME TEAM</p>
+            <span class="clr-neutral-700">RUSSIA</span>
+          </div>
+          <div class="card-center--score clr-neutral-700 p-1">
+            <img
+              src="https://restcountries.eu/data/rus.svg"
+              alt="Home flag"
+              class="icon--flag"
+            />
+            <p class="score-fill"><span>5</span> - <span>0</span></p>
+            <img
+              src="https://restcountries.eu/data/sau.svg"
+              alt="Home flag"
+              class="icon--flag"
+            />
+          </div>
+          <div class="card-center--away p-1">
+            <p class="text-xs">AWAY TEAM</p>
+            <span class="clr-neutral-700">SAUDI ARABIA</span>
+          </div>
+        </div>
+
+        <div class="card-bottom">
+          <p class="text-xs p-1">
+            DATE
+            <span class="text-sm clr-neutral-700 px-1"
+              >Thursday 14th June 2018, 3pm local time, 6pm UTC</span
+            >
+          </p>
+          <p class="text-xs p-1">
+            STATUS <span class="text-sm clr-txt-loser px-1">FINISHED</span>
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
