@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html",
-    "blah": "parcel src/index.html --public-url ."
+    "start": "rm -rf dev/* && parcel src/index.html --no-source-maps --no-cache --out-dir dev",
+    "build": "rm -rf dist/* && parcel build src/index.html --no-source-maps --no-cache --public-url ."
   },
   "keywords": [],
   "author": "",
