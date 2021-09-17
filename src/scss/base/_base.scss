@@ -67,9 +67,6 @@ form {
   border: 1px solid var(--clr-neutral-400);
   outline: none;
   border-radius: 1.5rem;
-  // background-image: url("images/search-icon.svg");
-  background-repeat: no-repeat;
-  background-position: 95% 50%;
   transition: border 0.3s, box-shadow 0.3s;
   &:focus {
     border: 1px solid var(--clr-neutral-500);
