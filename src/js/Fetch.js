@@ -19,7 +19,7 @@ class Fetch {
     return connect
   }
 
-  fetchMatches() {
+  fetchMatches(team) {
     let getMatches = fetch("http://localhost:9000/api/worldcup/findMatches", {
       method: "POST",
       headers: {
