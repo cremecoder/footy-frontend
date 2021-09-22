@@ -74,6 +74,57 @@ export function generateCards(matches, main) {
   })
 }
 
+export function emptyField(main) {
+  main.insertAdjacentHTML(
+    "beforeend",
+    `
+      <div class="enter">
+      <h1 class="text-lg--bold clr-neutral-800 text-center">Please enter a team to see their matches e.g Russia, England...</h1>
+      <div class="box">
+        <div class="shadow"></div>
+        <div class="gravity">
+          <div class="ball"></div>
+        </div>
+      </div>
+    </div>
+      `
+  )
+}
+
+export function invalidInput(main) {
+  main.insertAdjacentHTML(
+    "beforeend",
+    `
+    <div class="enter">
+    <h1 class="text-lg--bold clr-neutral-800 text-center">Please enter a valid team.</h1>
+    <div class="box">
+      <div class="shadow"></div>
+      <div class="gravity">
+        <div class="ball"></div>
+      </div>
+    </div>
+  </div>
+    `
+  )
+}
+
+export function teamNoExist(main) {
+  main.insertAdjacentHTML(
+    "beforeend",
+    `
+    <div class="enter">
+    <h1 class="text-lg--bold clr-neutral-800 text-center">Sorry, that team did not play in the competition :(</h1>
+    <div class="box">
+      <div class="shadow"></div>
+      <div class="gravity">
+        <div class="ball"></div>
+      </div>
+    </div>
+  </div>
+    `
+  )
+}
+
 export function generateError(h1Text, err) {
   h1Text.textContent = "Something went wrong: " + err
 }

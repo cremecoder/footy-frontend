@@ -7,35 +7,37 @@
     <link rel="stylesheet" href="scss/main.scss" />
   </head>
   <body>
-    <header>
-      <img
-        class="icon text-md"
-        src="images/1200px-2018_FIFA_worldcup.svg.png"
-        alt="FIFA World Cup Russia 2018"
-      />
-      <form action="/" id="form">
-        <input
-          type="text"
-          name="team"
-          placeholder="..."
-          class="input text-lg"
-          autocomplete="off"
-          autofocus="on"
-          disabled
+    <div id="root">
+      <header>
+        <img
+          class="icon text-md"
+          src="images/1200px-2018_FIFA_worldcup.svg.png"
+          alt="FIFA World Cup Russia 2018"
         />
-      </form>
-    </header>
-    <main class="bg-primary grid" id="main">
-      <div class="enter">
-        <h1 class="text-lg--bold clr-neutral-800 text-center">Loading...</h1>
-        <div class="box">
-          <div class="shadow"></div>
-          <div class="gravity">
-            <div class="ball"></div>
+        <form action="/">
+          <input
+            type="text"
+            name="team"
+            placeholder="..."
+            class="input text-lg"
+            autocomplete="off"
+            autofocus="on"
+            disabled
+          />
+        </form>
+      </header>
+      <main class="bg-primary grid">
+        <div class="enter">
+          <h1 class="text-lg--bold clr-neutral-800 text-center">Loading...</h1>
+          <div class="box">
+            <div class="shadow"></div>
+            <div class="gravity">
+              <div class="ball"></div>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </body>
   <script src="js/script.js"></script>
 </html>

@@ -1,11 +1,19 @@
 import Fetch from "./Fetch"
-import { generateHome, generateCards, generateError } from "./templates"
+import {
+  generateHome,
+  generateCards,
+  emptyField,
+  invalidInput,
+  teamNoExist,
+  generateError
+} from "./templates"
 
 let fetch = new Fetch()
 
-const form = document.getElementById("form")
-const input = form.children[0]
-const main = document.getElementById("main")
+const root = document.getElementById("root")
+const form = root.querySelector("form")
+const input = form.querySelector("input")
+const main = root.querySelector("main")
 const h1Text = main.querySelector("h1")
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -18,31 +26,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", e => {
     e.preventDefault()
-    let team = input.value.toLowerCase()
     if (!input.value) {
-      h1Text.textContent =
-        "Please enter a team to see their matches e.g Russia, England..."
-      input.value = ""
+      removeAllChildNodes(main)
+      emptyField(main)
     } else if (!/^([a-zA-Z\s]+)$/.test(input.value)) {
-      h1Text.textContent = "Please enter a valid team."
-      input.value = ""
+      removeAllChildNodes(main)
+      invalidInput(main)
     } else {
       fetch
-        .fetchMatches(team)
+        .fetchMatches(input.value)
         .then(matches => {
           if (!matches.length) {
-            // main.replaceChildren()
-            h1Text.textContent =
-              "Sorry, that team did not play in the competition :("
+            removeAllChildNodes(main)
+            teamNoExist(main)
           } else {
-            main.replaceChildren()
+            removeAllChildNodes(main)
             generateCards(matches, main)
           }
         })
         .catch(err => generateError(h1Text, err))
-      input.value = ""
     }
+    input.value = ""
   })
+
+  function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild)
+    }
+  }
 })
 
 // if (match.score.homeTeam > match.score.awayTeam) {
