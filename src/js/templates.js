@@ -11,6 +11,7 @@ export function generateHome(input, h1Text, connected) {
 }
 
 export function generateCards(matches, main) {
+  removeAllChildNodes(main)
   matches.forEach(match => {
     main.insertAdjacentHTML(
       "beforeend",
@@ -75,6 +76,7 @@ export function generateCards(matches, main) {
 }
 
 export function emptyField(main) {
+  removeAllChildNodes(main)
   main.insertAdjacentHTML(
     "beforeend",
     `
@@ -92,6 +94,7 @@ export function emptyField(main) {
 }
 
 export function invalidInput(main) {
+  removeAllChildNodes(main)
   main.insertAdjacentHTML(
     "beforeend",
     `
@@ -109,6 +112,7 @@ export function invalidInput(main) {
 }
 
 export function teamNoExist(main) {
+  removeAllChildNodes(main)
   main.insertAdjacentHTML(
     "beforeend",
     `
@@ -127,4 +131,10 @@ export function teamNoExist(main) {
 
 export function generateError(h1Text, err) {
   h1Text.textContent = "Something went wrong: " + err
+}
+
+function removeAllChildNodes(main) {
+  while (main.firstChild) {
+    main.removeChild(main.firstChild)
+  }
 }

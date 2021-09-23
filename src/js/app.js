@@ -10,13 +10,13 @@ import {
 
 let fetch = new Fetch()
 
-const root = document.getElementById("root")
-const form = root.querySelector("form")
-const input = form.querySelector("input")
-const main = root.querySelector("main")
-const h1Text = main.querySelector("h1")
-
 document.addEventListener("DOMContentLoaded", () => {
+  const root = document.getElementById("root")
+  const form = root.querySelector("form")
+  const input = form.querySelector("input")
+  const main = root.querySelector("main")
+  const h1Text = main.querySelector("h1")
+
   fetch
     .connectToApi()
     .then(connected => {
@@ -27,20 +27,17 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", e => {
     e.preventDefault()
     if (!input.value) {
-      removeAllChildNodes(main)
       emptyField(main)
     } else if (!/^([a-zA-Z\s]+)$/.test(input.value)) {
-      removeAllChildNodes(main)
       invalidInput(main)
     } else {
+      let team = input.value.toLowerCase().trim()
       fetch
-        .fetchMatches(input.value)
+        .fetchMatches(team)
         .then(matches => {
           if (!matches.length) {
-            removeAllChildNodes(main)
             teamNoExist(main)
           } else {
-            removeAllChildNodes(main)
             generateCards(matches, main)
           }
         })
@@ -48,13 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     input.value = ""
   })
-
-  function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-      parent.removeChild(parent.firstChild)
-    }
-  }
 })
+
+// ENV Vars?
 
 // if (match.score.homeTeam > match.score.awayTeam) {
 //   return html`match.homeTeam.name`
@@ -64,3 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //   return html`Draw`
 // }
 // <span class="text-sm clr-neutral-700 px-1"></span>
+
+// ADD MORE OPTIONS FOR MISPELLING E.G KOREA, SOUTH KOREA, KOREA REPUBLIC
+// DONT NEED WHITESPACE
+// OR ONE ONE WORD SAUDI
