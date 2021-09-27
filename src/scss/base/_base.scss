@@ -52,13 +52,21 @@ form {
   width: 100%;
 }
 
+.con {
+  width: 50px;
+  height: 35px;
+  margin: 0 1rem;
+  border: 1px solid var(--clr-neutral-300);
+}
+
 .icon {
   max-width: 100px;
 
   &--flag {
-    max-width: 50px;
-    margin: 0 1rem;
-    border: 1px solid var(--clr-neutral-300);
+    width: 3rem;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
   }
 }
 

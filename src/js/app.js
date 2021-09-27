@@ -28,7 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault()
     if (!input.value) {
       emptyField(main)
-    } else if (!/^([a-zA-Z\s]+)$/.test(input.value)) {
+    } else if (
+      !/^([a-zA-Z\s]+)$/.test(input.value) ||
+      input.value.length <= 3 ||
+      input.value.length >= 20
+    ) {
       invalidInput(main)
     } else {
       let team = input.value.toLowerCase().trim()
@@ -36,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .fetchMatches(team)
         .then(matches => {
           if (!matches.length) {
-            teamNoExist(main)
+            teamNoExist(main, team)
           } else {
             generateCards(matches, main)
           }
@@ -57,7 +61,3 @@ document.addEventListener("DOMContentLoaded", () => {
 //   return html`Draw`
 // }
 // <span class="text-sm clr-neutral-700 px-1"></span>
-
-// ADD MORE OPTIONS FOR MISPELLING E.G KOREA, SOUTH KOREA, KOREA REPUBLIC
-// DONT NEED WHITESPACE
-// OR ONE ONE WORD SAUDI

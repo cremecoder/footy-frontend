@@ -39,19 +39,25 @@ export function generateCards(matches, main) {
           <span class="clr-neutral-700">${match.homeTeam.name}</span>
         </div>
         <div class="card-center--score clr-neutral-700 p-1">
-          <img
-            src="${match.homeTeam.flag}"
-            alt="Home flag"
-            class="icon--flag"
-          />
+          <div class="con">
+            <img
+              src="${match.homeTeam.flag}"
+              alt="Home flag"
+              class="icon--flag"
+            />
+          </div>
+          <div>
           <p class="score-fill"><span>${match.score.homeTeam}</span> - <span>${
         match.score.awayTeam
       }</span></p>
-          <img
-            src="${match.awayTeam.flag}"
-            alt="Home flag"
-            class="icon--flag"
-          />
+          </div>
+          <div class="con">
+            <img
+              src="${match.awayTeam.flag}"
+              alt="Home flag"
+              class="icon--flag"
+            />
+          </div>
         </div>
         <div class="card-center--away p-1">
           <p class="text-xs">AWAY TEAM</p>
@@ -62,7 +68,7 @@ export function generateCards(matches, main) {
         <p class="text-xs p-1">
           DATE
           <span class="text-sm clr-neutral-700 px-1"
-            >${new Date(match.date).toUTCString()}</span
+            >${new Date(match.date).toUTCString().slice(0, -7)}</span
           >
         </p>
         <p class="text-xs p-1">
@@ -111,13 +117,13 @@ export function invalidInput(main) {
   )
 }
 
-export function teamNoExist(main) {
+export function teamNoExist(main, team) {
   removeAllChildNodes(main)
   main.insertAdjacentHTML(
     "beforeend",
     `
     <div class="enter">
-    <h1 class="text-lg--bold clr-neutral-800 text-center">Sorry, that team did not play in the competition :(</h1>
+    <h1 class="text-lg--bold clr-neutral-800 text-center">Sorry, "${team}" did not play in the competition :(</h1>
     <div class="box">
       <div class="shadow"></div>
       <div class="gravity">
