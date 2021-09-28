@@ -52,7 +52,11 @@ form {
   width: 100%;
 }
 
-.con {
+.img-container {
+  background-image: url("https://image.flaticon.com/icons/svg/33/33736.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 50px;
   height: 35px;
   margin: 0 1rem;

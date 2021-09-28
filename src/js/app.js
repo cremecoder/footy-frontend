@@ -17,18 +17,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const main = root.querySelector("main")
   const h1Text = main.querySelector("h1")
 
+  /*
+  - Connect to API when DOM is loaded
+  */
   fetch
     .connectToApi()
     .then(connected => {
       generateHome(input, h1Text, connected)
     })
-    .catch(err => generateError(h1Text, err))
+    .catch(err => generateError(main, err))
 
+  /*
+  - Form event listener
+  - Calls "template" functions to load different DOM elements based on user input
+  */
   form.addEventListener("submit", e => {
     e.preventDefault()
     if (!input.value) {
       emptyField(main)
     } else if (
+      // forbid special chars & numbers
       !/^([a-zA-Z\s]+)$/.test(input.value) ||
       input.value.length <= 3 ||
       input.value.length >= 20
@@ -45,19 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
             generateCards(matches, main)
           }
         })
-        .catch(err => generateError(h1Text, err))
+        .catch(err => generateError(main, err))
     }
     input.value = ""
   })
 })
 
 // ENV Vars?
-
-// if (match.score.homeTeam > match.score.awayTeam) {
-//   return html`match.homeTeam.name`
-// } else if (match.score.homeTeam < match.score.awayTeam) {
-//   return html`match.awayTeam.name`
-// } else {
-//   return html`Draw`
-// }
-// <span class="text-sm clr-neutral-700 px-1"></span>
