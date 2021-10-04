@@ -37,7 +37,7 @@ npm run build
   - **`Fetch.js`** ES6 Class module that uses the Fetch API to handle API calls.
   - **`templates.js`** Functions that return template literals and show dynamic data.
   - **`utils.js`** Helper functions used for data manipulation in **`template.js`**.
-- `scss/`
+- **`scss/`**
   - **`abstracts/*`** **Sass Maps** for the root colors and typography.
   - **`base/*`** Root styles; mostly derived from abstracts into utility classes and CSS Custom Properties.
   - **`components/*`** Styles scoped to individual components like the cards and CSS ball animation.
