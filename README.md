@@ -18,7 +18,9 @@ This repo contains the source files for the frontend of my fullstack project, **
 
 ```
 npm install
+
 npm start
+
 npm run build
 ```
 
