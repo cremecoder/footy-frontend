@@ -17,9 +17,9 @@ This repo contains the source files for the frontend of my fullstack project, **
 ## Instructions
 
 ```
-**npm install**
-**npm start**
-**npm run build**
+npm install
+npm start
+npm run build
 ```
 
 - **`npm install`** will install dependencies and create node_modules folder.
