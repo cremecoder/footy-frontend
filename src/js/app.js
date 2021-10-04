@@ -1,12 +1,5 @@
 import Fetch from "./Fetch"
-import {
-  generateHome,
-  generateCards,
-  emptyField,
-  invalidInput,
-  teamNoExist,
-  generateError
-} from "./templates"
+import * as template from "./templates"
 
 let fetch = new Fetch()
 
@@ -17,46 +10,39 @@ document.addEventListener("DOMContentLoaded", () => {
   const main = root.querySelector("main")
   const h1Text = main.querySelector("h1")
 
-  /*
-  - Connect to API when DOM is loaded
-  */
+  // Connect to API when DOM is loaded
   fetch
     .connectToApi()
     .then(connected => {
-      generateHome(input, h1Text, connected)
+      template.generateHome(input, h1Text, connected)
     })
-    .catch(err => generateError(main, err))
+    .catch(err => template.generateError(main, err))
 
-  /*
-  - Form event listener
-  - Calls "template" functions to load different DOM elements based on user input
-  */
+  // Calls "template" functions to load different DOM elements based on user input
   form.addEventListener("submit", e => {
     e.preventDefault()
     if (!input.value) {
-      emptyField(main)
+      template.emptyField(main)
     } else if (
-      // forbid special chars & numbers
+      // forbid symbols & numbers
       !/^([a-zA-Z\s]+)$/.test(input.value) ||
       input.value.length <= 3 ||
       input.value.length >= 20
     ) {
-      invalidInput(main)
+      template.invalidInput(main)
     } else {
       let team = input.value.toLowerCase().trim()
       fetch
         .fetchMatches(team)
         .then(matches => {
           if (!matches.length) {
-            teamNoExist(main, team)
+            template.teamNoExist(main, team)
           } else {
-            generateCards(matches, main)
+            template.generateCards(matches, main, team)
           }
         })
-        .catch(err => generateError(main, err))
+        .catch(err => template.generateError(main, err))
     }
     input.value = ""
   })
 })
-
-// ENV Vars?
