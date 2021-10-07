@@ -17,6 +17,9 @@ export function generateHome(input, h1Text, connected) {
 // Called on successful user input and shows match cards in DOM
 export function generateCards(matches, main) {
   removeAllChildNodes(main)
+  if (!main.classList.contains("bg-primary")) {
+    main.classList.add("bg-primary")
+  }
   matches.forEach(match => {
     formatCardProperties(match)
     main.insertAdjacentHTML(
@@ -95,6 +98,9 @@ export function generateCards(matches, main) {
 // Called if user submits empty field
 export function emptyField(main) {
   removeAllChildNodes(main)
+  if (main.classList.contains("bg-primary")) {
+    main.classList.remove("bg-primary")
+  }
   main.insertAdjacentHTML(
     "beforeend",
     `
@@ -114,6 +120,9 @@ export function emptyField(main) {
 // Called if user input is too short/long or has forbidden characters
 export function invalidInput(main) {
   removeAllChildNodes(main)
+  if (main.classList.contains("bg-primary")) {
+    main.classList.remove("bg-primary")
+  }
   main.insertAdjacentHTML(
     "beforeend",
     `
@@ -133,6 +142,9 @@ export function invalidInput(main) {
 // Called if server can't find requested team
 export function teamNoExist(main, team) {
   removeAllChildNodes(main)
+  if (main.classList.contains("bg-primary")) {
+    main.classList.remove("bg-primary")
+  }
   main.insertAdjacentHTML(
     "beforeend",
     `
@@ -152,6 +164,9 @@ export function teamNoExist(main, team) {
 // Called on server error from Fetch.js catches
 export function generateError(main, err) {
   removeAllChildNodes(main)
+  if (main.classList.contains("bg-primary")) {
+    main.classList.remove("bg-primary")
+  }
   main.insertAdjacentHTML(
     "beforeend",
     `

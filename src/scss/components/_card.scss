@@ -1,15 +1,18 @@
 .card {
-  border-radius: 1rem;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   #{&}-top {
-    padding: 1rem;
+    padding: 1em;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
   }
 
   #{&}-center {
-    padding: 2rem 0;
+    padding: 2em 0;
     border-top: 1px solid var(--clr-neutral-300);
     border-bottom: 1px solid var(--clr-neutral-300);
     display: flex;
@@ -33,13 +36,13 @@
 
     .score-fill {
       background-color: var(--clr-neutral-300);
-      border-radius: 1rem;
+      border-radius: 1em;
       padding: 0.25em 0.75em;
     }
   }
 
   #{&}-bottom {
-    padding: 1rem;
+    padding: 1em;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
