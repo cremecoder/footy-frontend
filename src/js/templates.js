@@ -17,9 +17,6 @@ export function generateHome(input, h1Text, connected) {
 // Called on successful user input and shows match cards in DOM
 export function generateCards(matches, main) {
   removeAllChildNodes(main)
-  if (!main.classList.contains("bg-primary")) {
-    main.classList.add("bg-primary")
-  }
   matches.forEach(match => {
     formatCardProperties(match)
     main.insertAdjacentHTML(
