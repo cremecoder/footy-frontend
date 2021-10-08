@@ -1,3 +1,5 @@
+import englandFlag from "../images/england.svg"
+
 export function formatCardProperties(match) {
   // Format match.winner to show correct data
   if (match.score.homeTeam > match.score.awayTeam) {
@@ -6,6 +8,14 @@ export function formatCardProperties(match) {
     match.winner = match.awayTeam.name
   } else {
     match.winner = "Draw"
+  }
+
+  // Replace GB flag with England flag
+  if (match.homeTeam.flag === "https://flagcdn.com/gb.svg") {
+    match.homeTeam.flag = englandFlag
+  }
+  if (match.awayTeam.flag === "https://flagcdn.com/gb.svg") {
+    match.awayTeam.flag = englandFlag
   }
 
   // toLowerCase all but first letter & remove hyphens & underscores
