@@ -1,7 +1,10 @@
 import { formatCardProperties, removeAllChildNodes } from "./utils"
 
 // Called on successful connection to API
-export function generateHome(input, h1Text, connected) {
+export function generateHome(input, h1Text, connected, wrapper) {
+  if (wrapper.classList.contains("bg-primary")) {
+    wrapper.classList.remove("bg-primary")
+  }
   if (connected === true) {
     input.removeAttribute("disabled")
     input.focus()
@@ -15,7 +18,10 @@ export function generateHome(input, h1Text, connected) {
 }
 
 // Called on successful user input and shows match cards in DOM
-export function generateCards(matches, main) {
+export function generateCards(matches, main, wrapper) {
+  if (!wrapper.classList.contains("bg-primary")) {
+    wrapper.classList.add("bg-primary")
+  }
   removeAllChildNodes(main)
   matches.forEach(match => {
     formatCardProperties(match)
@@ -93,11 +99,11 @@ export function generateCards(matches, main) {
 }
 
 // Called if user submits empty field
-export function emptyField(main) {
-  removeAllChildNodes(main)
-  if (main.classList.contains("bg-primary")) {
-    main.classList.remove("bg-primary")
+export function emptyField(main, wrapper) {
+  if (wrapper.classList.contains("bg-primary")) {
+    wrapper.classList.remove("bg-primary")
   }
+  removeAllChildNodes(main)
   main.insertAdjacentHTML(
     "beforeend",
     `
@@ -115,11 +121,11 @@ export function emptyField(main) {
 }
 
 // Called if user input is too short/long or has forbidden characters
-export function invalidInput(main) {
-  removeAllChildNodes(main)
-  if (main.classList.contains("bg-primary")) {
-    main.classList.remove("bg-primary")
+export function invalidInput(main, wrapper) {
+  if (wrapper.classList.contains("bg-primary")) {
+    wrapper.classList.remove("bg-primary")
   }
+  removeAllChildNodes(main)
   main.insertAdjacentHTML(
     "beforeend",
     `
@@ -137,11 +143,11 @@ export function invalidInput(main) {
 }
 
 // Called if server can't find requested team
-export function teamNoExist(main, team) {
-  removeAllChildNodes(main)
-  if (main.classList.contains("bg-primary")) {
-    main.classList.remove("bg-primary")
+export function teamNoExist(main, team, wrapper) {
+  if (wrapper.classList.contains("bg-primary")) {
+    wrapper.classList.remove("bg-primary")
   }
+  removeAllChildNodes(main)
   main.insertAdjacentHTML(
     "beforeend",
     `
@@ -159,11 +165,11 @@ export function teamNoExist(main, team) {
 }
 
 // Called on server error from Fetch.js catches
-export function generateError(main, err) {
-  removeAllChildNodes(main)
-  if (main.classList.contains("bg-primary")) {
-    main.classList.remove("bg-primary")
+export function generateError(main, err, wrapper) {
+  if (wrapper.classList.contains("bg-primary")) {
+    wrapper.classList.remove("bg-primary")
   }
+  removeAllChildNodes(main)
   main.insertAdjacentHTML(
     "beforeend",
     `
