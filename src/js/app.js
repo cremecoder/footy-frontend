@@ -4,46 +4,50 @@ import * as template from "./templates"
 let fetch = new Fetch()
 
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("form")
-  const input = form.querySelector(".search")
-  const btn = form.querySelector(".btn")
-  const wrapper = document.getElementById("wrapper")
-  const main = wrapper.querySelector("main")
-  const h1Text = main.querySelector("h1")
+  const domNodes = {
+    form: document.querySelector("form"),
+    input: document.querySelector(".search"),
+    btn: document.querySelector(".search-btn"),
+    wrapper: document.getElementById("wrapper"),
+    main: document.querySelector("main"),
+    h1Text: document.querySelector("h1")
+  }
 
   // Connect to API when DOM is loaded
   fetch
     .connectToApi()
     .then(connected => {
-      template.generateHome(input, h1Text, connected, wrapper)
+      template.generateHome(domNodes, connected)
     })
-    .catch(err => template.generateError(main, err, wrapper))
+    .catch(err => template.generateError(domNodes, err))
 
   // Calls "template" functions to load different DOM elements based on user input
-  form.addEventListener("submit", e => {
+  domNodes.form.addEventListener("submit", e => {
     e.preventDefault()
-    if (!input.value) {
-      template.emptyField(main, wrapper)
+    if (!domNodes.input.value) {
+      // template.emptyField(main, wrapper)
+      template.emptyField(domNodes)
     } else if (
       // forbid symbols & numbers
-      !/^([a-zA-Z\s]+)$/.test(input.value) ||
-      input.value.length <= 3 ||
-      input.value.length >= 20
+      !/^([a-zA-Z\s]+)$/.test(domNodes.input.value) ||
+      domNodes.input.value.length <= 3 ||
+      domNodes.input.value.length >= 20
     ) {
-      template.invalidInput(main, wrapper)
+      // template.invalidInput(main, wrapper)
+      template.invalidInput(domNodes)
     } else {
-      let team = input.value.toLowerCase().trim()
+      let team = domNodes.input.value.toLowerCase().trim()
       fetch
         .fetchMatches(team)
         .then(matches => {
           if (!matches.length) {
-            template.teamNoExist(main, team, wrapper)
+            template.teamNoExist(domNodes, team)
           } else {
-            template.generateCards(matches, main, wrapper)
+            template.generateCards(domNodes, matches)
           }
         })
-        .catch(err => template.generateError(main, err, wrapper))
+        .catch(err => template.generateError(domNodes, err))
     }
-    input.value = ""
+    domNodes.input.value = ""
   })
 })

@@ -1,11 +1,12 @@
 import { formatCardProperties, removeAllChildNodes } from "./utils"
 
 // Called on successful connection to API
-export function generateHome(input, h1Text, connected, wrapper) {
+export function generateHome({ input, h1Text, wrapper, btn }, connected) {
   if (wrapper.classList.contains("bg-primary")) {
     wrapper.classList.remove("bg-primary")
   }
   if (connected === true) {
+    btn.removeAttribute("disabled")
     input.removeAttribute("disabled")
     input.focus()
     input.attributes.placeholder.textContent = "Enter a team"
@@ -18,7 +19,7 @@ export function generateHome(input, h1Text, connected, wrapper) {
 }
 
 // Called on successful user input and shows match cards in DOM
-export function generateCards(matches, main, wrapper) {
+export function generateCards({ main, wrapper }, matches) {
   if (!wrapper.classList.contains("bg-primary")) {
     wrapper.classList.add("bg-primary")
   }
@@ -99,7 +100,7 @@ export function generateCards(matches, main, wrapper) {
 }
 
 // Called if user submits empty field
-export function emptyField(main, wrapper) {
+export function emptyField({ main, wrapper }) {
   if (wrapper.classList.contains("bg-primary")) {
     wrapper.classList.remove("bg-primary")
   }
@@ -121,7 +122,7 @@ export function emptyField(main, wrapper) {
 }
 
 // Called if user input is too short/long or has forbidden characters
-export function invalidInput(main, wrapper) {
+export function invalidInput({ main, wrapper }) {
   if (wrapper.classList.contains("bg-primary")) {
     wrapper.classList.remove("bg-primary")
   }
@@ -143,7 +144,7 @@ export function invalidInput(main, wrapper) {
 }
 
 // Called if server can't find requested team
-export function teamNoExist(main, team, wrapper) {
+export function teamNoExist({ main, wrapper }, team) {
   if (wrapper.classList.contains("bg-primary")) {
     wrapper.classList.remove("bg-primary")
   }
@@ -165,7 +166,7 @@ export function teamNoExist(main, team, wrapper) {
 }
 
 // Called on server error from Fetch.js catches
-export function generateError(main, err, wrapper) {
+export function generateError({ main, wrapper }, err) {
   if (wrapper.classList.contains("bg-primary")) {
     wrapper.classList.remove("bg-primary")
   }
