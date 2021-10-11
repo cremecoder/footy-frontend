@@ -11,41 +11,37 @@
     <link rel="stylesheet" href="scss/main.scss" />
   </head>
   <body>
-    <div id="root">
-      <header>
-        <img
-          class="icon text-md"
-          src="images/1200px-2018_FIFA_worldcup.svg.png"
-          alt="FIFA World Cup Russia 2018"
+    <header>
+      <img
+        class="logo text-md"
+        src="images/1200px-2018_FIFA_worldcup.svg.png"
+        alt="FIFA World Cup Russia 2018"
+      />
+      <form action="/">
+        <input
+          type="text"
+          name="team"
+          placeholder="..."
+          class="search text-lg"
+          inputmode="search"
+          autocomplete="off"
+          autofocus="on"
+          disabled
         />
-        <form action="/">
-          <input
-            type="text"
-            name="team"
-            placeholder="..."
-            class="input text-lg"
-            inputmode="search"
-            autocomplete="off"
-            autofocus="on"
-            disabled
-          />
-        </form>
-      </header>
-      <div id="wrapper">
-        <main class="grid">
-          <div class="enter">
-            <h1 class="text-lg--bold clr-neutral-800 text-center">
-              Loading...
-            </h1>
-            <div class="box">
-              <div class="shadow"></div>
-              <div class="gravity">
-                <div class="ball"></div>
-              </div>
+      </form>
+    </header>
+    <div id="wrapper" class="bg-neutral-200">
+      <main class="grid">
+        <div class="enter">
+          <h1 class="text-lg--bold clr-neutral-800 text-center">Loading...</h1>
+          <div class="box">
+            <div class="shadow"></div>
+            <div class="gravity">
+              <div class="ball"></div>
             </div>
           </div>
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
   </body>
   <script src="js/app.js"></script>

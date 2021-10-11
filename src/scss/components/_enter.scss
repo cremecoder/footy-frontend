@@ -1,11 +1,9 @@
 .enter {
-  background-color: var(--clr-neutral-100);
-  border-radius: 1rem;
-  padding: 2rem;
+  margin-top: 1rem;
   grid-area: c1 / span 3;
 
   & > h1 {
-    max-width: 70%;
+    max-width: 80%;
     margin: 0 auto;
   }
 }
@@ -29,6 +27,7 @@
   }
 }
 .gravity {
+  margin-top: 1rem;
   width: 40px;
   height: 40px;
   animation: bounce 1s cubic-bezier(0.68, 0.35, 0.29, 0.54) infinite;

@@ -34,6 +34,7 @@ npm run build
 
 - **`images/`**
   - **`1200px-2018_FIFA_worldcup.svg.png`** Logo image.
+  - **`england.svg`** Replacement for Great Britain flag from the api.
 - **`js/`**
   - **`app.js`** Root javascript file interacting with the DOM.
   - **`Fetch.js`** ES6 Class module that uses the Fetch API to handle API calls.

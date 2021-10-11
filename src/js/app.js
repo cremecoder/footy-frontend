@@ -4,11 +4,11 @@ import * as template from "./templates"
 let fetch = new Fetch()
 
 document.addEventListener("DOMContentLoaded", () => {
-  const root = document.getElementById("root")
-  const form = root.querySelector("form")
-  const input = form.querySelector("input")
+  const form = document.querySelector("form")
+  const input = form.querySelector(".search")
+  const btn = form.querySelector(".btn")
   const wrapper = document.getElementById("wrapper")
-  const main = root.querySelector("main")
+  const main = wrapper.querySelector("main")
   const h1Text = main.querySelector("h1")
 
   // Connect to API when DOM is loaded

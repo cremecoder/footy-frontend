@@ -6,7 +6,7 @@ class Fetch {
   }
 
   connectToApi() {
-    let connect = fetch("https://worldcup2018-api.herokuapp.com/api/worldcup")
+    let connect = fetch("http://localhost:9000/api/worldcup")
       .then(res => res.json())
       .then(connection => {
         this.connected = connection
@@ -20,16 +20,13 @@ class Fetch {
   }
 
   fetchMatches(team) {
-    let getMatches = fetch(
-      "https://worldcup2018-api.herokuapp.com/api/worldcup/findMatches",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ team })
-      }
-    )
+    let getMatches = fetch("http://localhost:9000/api/worldcup/findMatches", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ team })
+    })
       .then(res => res.json())
       .then(data => {
         this.matches = data.matches

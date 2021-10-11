@@ -8,7 +8,7 @@ export function generateHome(input, h1Text, connected, wrapper) {
   if (connected === true) {
     input.removeAttribute("disabled")
     input.focus()
-    input.attributes.placeholder.textContent = "Search country"
+    input.attributes.placeholder.textContent = "Enter a team"
     h1Text.textContent =
       "Enter a team from the Fifa World Cup 2018 to see their matches."
   } else {
@@ -54,7 +54,7 @@ export function generateCards(matches, main, wrapper) {
               ? `<img
                   src="${match.homeTeam.flag}"
                   alt="Home flag"
-                  class="icon--flag"
+                  class="flag"
                   />`
               : ""
           }
@@ -70,7 +70,7 @@ export function generateCards(matches, main, wrapper) {
                 ? `<img
                     src="${match.awayTeam.flag}"
                     alt="Away flag"
-                    class="icon--flag"
+                    class="flag"
                   />`
                 : ""
             }
