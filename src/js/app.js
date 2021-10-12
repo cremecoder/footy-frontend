@@ -25,12 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Calls "template" functions to load different DOM elements based on user input
   domNodes.form.addEventListener("submit", e => {
     e.preventDefault()
-    if (!domNodes.input.value) {
+    let team = domNodes.input.value
+    if (!team) {
       template.emptyField(domNodes)
-    } else if (validator(domNodes.input.value) === true) {
+    } else if (validator(team) === true) {
       template.invalidInput(domNodes)
     } else {
-      let team = domNodes.input.value.toLowerCase().trim()
+      team.toLowerCase().trim()
       fetch
         .fetchMatches(team)
         .then(matches => {
@@ -43,5 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(err => template.generateError(domNodes, err))
     }
     domNodes.input.value = ""
+  })
+
+  // Focus input when btn is clicked
+  domNodes.btn.addEventListener("click", () => {
+    domNodes.input.focus()
   })
 })
