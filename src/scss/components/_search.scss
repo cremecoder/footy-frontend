@@ -17,7 +17,7 @@ form {
 }
 
 .search {
-  width: 70%;
+  width: 85%;
   border: none;
   border-radius: 1em;
   background-color: var(--clr-neutral-300);
@@ -32,7 +32,7 @@ form {
     border: none;
     padding: 0 1rem;
     background-color: var(--clr-neutral-500);
-    border-radius: 1em 0em 0em 1em;
+    border-radius: 0em 1em 1em 0em;
     transition: background-color 0.2s;
     & > i {
       font-size: 1.5rem;

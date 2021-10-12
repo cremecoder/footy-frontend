@@ -29,7 +29,7 @@ export function generateCards({ main, wrapper }, matches) {
     main.insertAdjacentHTML(
       "beforeend",
       `
-      <div class="card bg-neutral-100 clr-neutral-600">
+      <div class="card bg-neutral-100 clr-neutral-600 load-in">
       <ul class="card-top">
         <li class="text-xs p-1">
           STAGE <span class="text-sm clr-neutral-700 px-1">${match.stage}</span>
