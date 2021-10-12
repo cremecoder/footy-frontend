@@ -108,7 +108,7 @@ export function emptyField({ main, wrapper }) {
   main.insertAdjacentHTML(
     "beforeend",
     `
-      <div class="enter">
+      <div class="enter load-in">
       <h1 class="text-lg--bold clr-neutral-800 text-center">Please enter a team to see their matches e.g Russia, England...</h1>
       <div class="box">
         <div class="shadow"></div>
@@ -130,7 +130,7 @@ export function invalidInput({ main, wrapper }) {
   main.insertAdjacentHTML(
     "beforeend",
     `
-    <div class="enter">
+    <div class="enter load-in">
     <h1 class="text-lg--bold clr-neutral-800 text-center">Please enter a valid team.</h1>
     <div class="box">
       <div class="shadow"></div>
@@ -152,7 +152,7 @@ export function teamNoExist({ main, wrapper }, team) {
   main.insertAdjacentHTML(
     "beforeend",
     `
-    <div class="enter">
+    <div class="enter load-in">
     <h1 class="text-lg--bold clr-neutral-800 text-center">Sorry, "${team}" did not play in the competition :(</h1>
     <div class="box">
       <div class="shadow"></div>
@@ -174,7 +174,7 @@ export function generateError({ main, wrapper }, err) {
   main.insertAdjacentHTML(
     "beforeend",
     `
-    <div class="enter">
+    <div class="enter load-in">
     <h1 class="text-lg--bold clr-neutral-800 text-center">Soemthing went wrong: ${err}</h1>
     <div class="box">
       <div class="shadow"></div>
