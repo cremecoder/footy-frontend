@@ -23,8 +23,8 @@
       />
       <form action="/">
         <input
-          type="text"
-          name="team"
+          list="teams"
+          id="inputField"
           placeholder="..."
           class="search text-lg"
           inputmode="search"
@@ -32,10 +32,46 @@
           autofocus="on"
           disabled
         />
-        <button class="search-btn" type="submit" disabled>
+        <button class="search-btn" id="search-btn" disabled>
           <i class="fa fa-search"></i>
         </button>
       </form>
+      <div>
+        <datalist id="teams">
+          <option value="Argentina"></option>
+          <option value="Australia"></option>
+          <option value="Belgium"></option>
+          <option value="Brazil"></option>
+          <option value="Colombia"></option>
+          <option value="Costa Rica"></option>
+          <option value="Croatia"></option>
+          <option value="Denmark"></option>
+          <option value="Egypt"></option>
+          <option value="England"></option>
+          <option value="France"></option>
+          <option value="Germany"></option>
+          <option value="Iceland"></option>
+          <option value="Iran"></option>
+          <option value="Japan"></option>
+          <option value="Korea Republic"></option>
+          <option value="Mexico"></option>
+          <option value="Morocco"></option>
+          <option value="Nigeria"></option>
+          <option value="Panama"></option>
+          <option value="Peru"></option>
+          <option value="Poland"></option>
+          <option value="Portugal"></option>
+          <option value="Russia"></option>
+          <option value="Saudi Arabia"></option>
+          <option value="Senegal"></option>
+          <option value="Serbia"></option>
+          <option value="Spain"></option>
+          <option value="Sweden"></option>
+          <option value="Switzerland"></option>
+          <option value="Tunisia"></option>
+          <option value="Uruguay"></option>
+        </datalist>
+      </div>
     </header>
     <div id="wrapper" class="bg-neutral-200 load-in">
       <main class="grid">

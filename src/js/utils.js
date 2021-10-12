@@ -37,7 +37,7 @@ export function validator(input) {
   // forbid symbols & numbers
   if (
     !/^([a-zA-Z\s]+)$/.test(input) ||
-    input.length <= 3 ||
+    input.length <= 2 ||
     input.length >= 20
   ) {
     return true

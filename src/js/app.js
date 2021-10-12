@@ -7,11 +7,12 @@ let fetch = new Fetch()
 document.addEventListener("DOMContentLoaded", () => {
   const domNodes = {
     form: document.querySelector("form"),
-    input: document.querySelector(".search"),
-    btn: document.querySelector(".search-btn"),
+    input: document.getElementById("inputField"),
+    btn: document.getElementById("search-btn"),
     wrapper: document.getElementById("wrapper"),
     main: document.querySelector("main"),
-    h1Text: document.querySelector("h1")
+    h1Text: document.querySelector("h1"),
+    teamsList: document.getElementById("teams")
   }
 
   // Connect to API when DOM is loaded
