@@ -23,7 +23,38 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => template.generateError(domNodes, err))
 
-  // Calls "template" functions to load different DOM elements based on user input
+  // Focus input when btn is clicked
+  domNodes.btn.addEventListener("click", () => {
+    domNodes.input.focus()
+  })
+
+  /*
+- Evt listener for selecting datalist options
+- Calls "template" functions to load different DOM elements
+  */
+  domNodes.form.addEventListener("input", e => {
+    if (!(e instanceof InputEvent) || e.inputType === "insertReplacementText") {
+      e.preventDefault()
+      let team = e.target.value
+      fetch
+        .fetchMatches(team)
+        .then(matches => {
+          if (!matches.length) {
+            template.teamNoExist(domNodes, team)
+          } else {
+            template.generateCards(domNodes, matches)
+          }
+        })
+        .catch(err => template.generateError(domNodes, err))
+      domNodes.input.value = ""
+      domNodes.input.blur()
+    }
+  })
+
+  /*
+- Evt listener for user text input
+- Calls "template" functions to load different DOM elements
+  */
   domNodes.form.addEventListener("submit", e => {
     e.preventDefault()
     let team = domNodes.input.value
@@ -45,10 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(err => template.generateError(domNodes, err))
     }
     domNodes.input.value = ""
-  })
-
-  // Focus input when btn is clicked
-  domNodes.btn.addEventListener("click", () => {
-    domNodes.input.focus()
+    domNodes.input.blur()
   })
 })

@@ -9,7 +9,7 @@ export function generateHome({ input, h1Text, wrapper, btn }, connected) {
     btn.removeAttribute("disabled")
     input.removeAttribute("disabled")
     input.focus()
-    input.attributes.placeholder.textContent = "Enter a team"
+    input.attributes.placeholder.textContent = "Select a team"
     h1Text.textContent =
       "Enter a team from the Fifa World Cup 2018 to see their matches."
   } else {
