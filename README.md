@@ -1,6 +1,6 @@
 # World Cup 2018 - Frontend
 
-This repo contains the source files for the frontend of my fullstack project, **World Cup 2018 Fixtures**. The technologies used are **HTML, CSS with SASS, and Javascript.**
+This repo contains the source files for the frontend of my fullstack project, **World Cup 2018 Fixtures**. The technologies used are **HTML, CSS with SASS, and javascript.** I made use of SASS to create maps and bring structure to my CSS. I also modularized the javacript files into template functions, a class for fetching data and a utility functions file.
 
 > You can visit the live site [here.](https://vigorous-spence-f64f9f.netlify.app/)
 >
@@ -10,7 +10,7 @@ This repo contains the source files for the frontend of my fullstack project, **
 
 ## Background
 
-**World Cup 2018 Fixtures** is a fullstack brief that was given to me by an agency based in my hometown for the purposes of feedback and critique.
+**World Cup 2018 Fixtures** is a fullstack brief that was given to me by an agency based in my hometown for the purposes of feedback and critique. The first part of the brief specified using Node/Express to create a JSON REST API, the second part was to build a client (with no frontend frameworks) which consumes its endpoints and displays world cup matches to the user.
 
 <br>
 
