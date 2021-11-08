@@ -31,11 +31,11 @@
   height: 40px;
   animation: bounce 1s cubic-bezier(0.68, 0.35, 0.29, 0.54) infinite;
 }
-.ball {
-  width: 40px;
-  height: 40px;
-  background-image: url("https://image.flaticon.com/icons/svg/33/33736.svg");
-  background-size: cover;
+
+.fa-futbol {
+  font-size: 2.5rem;
+  background-color: var(--clr-neutral-100);
+  border-radius: 1em;
   animation: roll 0.6s linear infinite;
 }
 
